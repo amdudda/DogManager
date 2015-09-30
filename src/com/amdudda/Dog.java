@@ -26,6 +26,10 @@ public class Dog {
         } // end for
     } // end method writeDog
 
+    public void writeDogDay() {
+        // TODO implement code to write a day's walk for the dog.
+    }
+
     private String getDayName(int index) {
         // retrieves a day name based on a number
         switch (index) {

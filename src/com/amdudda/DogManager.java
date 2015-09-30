@@ -10,5 +10,5 @@ public class DogManager {
 
         // debugging: proof Dog works
         rover.writeDog();
-    }
-}
+    } // end main
+} // end DogManager
