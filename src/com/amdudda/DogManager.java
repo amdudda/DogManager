@@ -12,17 +12,7 @@ public class DogManager {
         makeDogs(dogList);
 
         // write out weekly report of dog walks
-        for (int i = 0; i<7; i++) {
-            int walks_today = totalDaysWalks(dogList,i);
-            System.out.print(getDayName(i) + ":");
-            if (walks_today > 6 ) System.out.println("    **WARNING: MORE THAN 6 WALKS SCHEDULED TODAY!**");
-            else System.out.println("");
-            for (Dog j : dogList) {
-                j.writeWalkInfo(i);
-            } // end run through dogList
-            // print total number of walks for the day
-            System.out.println("\tTotal walks to give today: " + walks_today);
-        } // end run through days of week
+        writeWeeklyReport(dogList);
 
     } // end main
 
@@ -39,13 +29,27 @@ public class DogManager {
         dL.add(rover);
         dL.add(boz);
         dL.add(k9);
-        dL.add(new Dog("Lassie","101 Flicka Pier",lassiesched));
+        dL.add(new Dog("Lassie","101 Flicka's Pier",lassiesched));
 
         /* debugging: proof Dog works
         rover.writeDog();
         boz.writeDog();
         rk9.writeDog();
         */
+    }
+
+    public static void writeWeeklyReport(ArrayList<Dog> dL) {
+        for (int i = 0; i<7; i++) {
+            int walks_today = totalDaysWalks(dL,i);
+            System.out.print(getDayName(i) + ":");
+            if (walks_today > 6 ) System.out.println("    **WARNING: MORE THAN 6 WALKS SCHEDULED TODAY!**");
+            else System.out.println("");
+            for (Dog j : dL) {
+                j.writeWalkInfo(i);
+            } // end run through dogList
+            // print total number of walks for the day
+            System.out.println("\tTotal walks to give today: " + walks_today);
+        } // end run through days of week
     }
 
     public static int totalDaysWalks(ArrayList<Dog> dL, int day) {
