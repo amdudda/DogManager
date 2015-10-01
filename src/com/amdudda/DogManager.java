@@ -18,18 +18,15 @@ public class DogManager {
 
     public static void makeDogs(ArrayList<Dog> dL) {
         // make some fictitious dogs
-        int[] roverschedule = {1,0,6,0,1,0,2};
-        Dog rover = new Dog("Rover","1 Pine Street",roverschedule);
-        int[] bozschedule = {2,0,0,3,1,0,0};
-        Dog boz = new Dog("Boz","99 Bottles Lane",bozschedule);
+        Dog rover = new Dog("Rover","1 Pine Street", new int[] {1,0,6,0,1,0,2});
+        Dog boz = new Dog("Boz","99 Bottles Lane",new int[] {2,0,0,3,1,0,0});
         int[] k9schedule = {1,0,0,1,0,1,1};  // binary ascii for 'K'
         Dog k9 = new Dog("K9","The Tardis",k9schedule);
-        int[] lassiesched = {1,1,1,1,1,1,1};
 
         dL.add(rover);
         dL.add(boz);
         dL.add(k9);
-        dL.add(new Dog("Lassie","101 Flicka's Pier",lassiesched));
+        dL.add(new Dog("Lassie","101 Flicka's Pier", new int[] {1,1,1,1,1,1,1}));
 
         /* debugging: proof Dog works
         rover.writeDog();
