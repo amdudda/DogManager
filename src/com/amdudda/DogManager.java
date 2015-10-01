@@ -15,9 +15,14 @@ public class DogManager {
         // write out weekly report of dog walks
         writeWeeklyReport(dogList);
 
+        // write out weekly schedule for dog zero (Rover)
+        dogList.get(0).writeDog();
+
+
+
     } // end main
 
-    public static void makeDogs(ArrayList<Dog> dL) {
+    private static void makeDogs(ArrayList<Dog> dL) {
         // make some fictitious dogs
         Dog rover = new Dog("Rover","1 Pine Street", new int[] {1,0,6,0,1,0,2});
         Dog boz = new Dog("Boz","99 Bottles Lane",new int[] {2,0,0,3,1,0,0});
@@ -36,7 +41,7 @@ public class DogManager {
         */
     }
 
-    public static void writeWeeklyReport(ArrayList<Dog> dL) {
+    private static void writeWeeklyReport(ArrayList<Dog> dL) {
         for (int i = 0; i<7; i++) {
             // calculate total number of walks today
             int walks_today = totalDaysWalks(dL,i);
@@ -53,7 +58,7 @@ public class DogManager {
         } // end run through days of week
     } // end writeWeeklyReport
 
-    public static int totalDaysWalks(ArrayList<Dog> dL, int day) {
+    private static int totalDaysWalks(ArrayList<Dog> dL, int day) {
         // returns the total number of walks for a given day
         int totalwalks = 0;
         for (Dog d:dL) {
@@ -62,9 +67,9 @@ public class DogManager {
         return totalwalks;
     } // end totalDaysWalks
 
-    public static String getDayName(int index) {
+    protected static String getDayName(int index) {
         // retrieves a day name based on a number
-        // this started as a method for Dog, but I need it to generate my weekly walks report.
+        // this started as a method for Dog, but I also need it to generate my weekly walks report.
         switch (index) {
             case 0: return "Sunday";
             case 1: return "Monday";
