@@ -13,19 +13,22 @@ public class DogManager {
 
         // write out weekly report of dog walks
         for (int i = 0; i<7; i++) {
-            System.out.println(getDayName(i) + ":");
-            // print total number of walks for the day
-            System.out.println("Total walks to give today: " + totalDaysWalks(dogList,i));
+            int walks_today = totalDaysWalks(dogList,i);
+            System.out.print(getDayName(i) + ":");
+            if (walks_today > 6 ) System.out.println("    **WARNING: MORE THAN 6 WALKS SCHEDULED TODAY!**");
+            else System.out.println("");
             for (Dog j : dogList) {
                 j.writeWalkInfo(i);
             } // end run through dogList
+            // print total number of walks for the day
+            System.out.println("\tTotal walks to give today: " + walks_today);
         } // end run through days of week
 
     } // end main
 
     public static void makeDogs(ArrayList<Dog> dL) {
         // make some fictitious dogs
-        int[] roverschedule = {1,0,1,0,1,0,2};
+        int[] roverschedule = {1,0,6,0,1,0,2};
         Dog rover = new Dog("Rover","1 Pine Street",roverschedule);
         int[] bozschedule = {2,0,0,3,1,0,0};
         Dog boz = new Dog("Boz","99 Bottles Lane",bozschedule);
