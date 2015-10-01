@@ -1,10 +1,11 @@
 package com.amdudda;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DogManager {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	// Lab 6, Adv Prob 1
         // set up an arraylist to store our dogs
         ArrayList<Dog> dogList = new ArrayList<Dog>();
@@ -18,7 +19,8 @@ public class DogManager {
         // write out weekly schedule for dog zero (Rover)
         dogList.get(0).writeDog();
 
-
+        // update Rover's schedule
+        dogList.get(0).setSchedule();
 
     } // end main
 

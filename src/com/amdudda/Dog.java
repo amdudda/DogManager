@@ -1,5 +1,8 @@
 package com.amdudda;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  * Created by amdudda on 9/30/2015.
  */
@@ -10,19 +13,19 @@ public class Dog {
     private int[] schedule;  // array size 7, index 0 = Sunday..6 = Saturday
 
     // Constructor
-    public Dog (String dogName, String ownerAddress, int[] walkSchedule) {
+    public Dog(String dogName, String ownerAddress, int[] walkSchedule) {
         this.name = dogName;
         this.address = ownerAddress;
         this.schedule = walkSchedule;
     } // end constructor for Dog
 
-    public int getWalks (int day) {
+    public int getWalks(int day) {
         // returns number of walks for a particular weekday.
         // public because there might be situations where you want to access the number of walks a dog has on a given day.
         return this.schedule[day];
     } // end method getWalks
 
-    public String getAddress(){
+    public String getAddress() {
         return this.address;
     } // end method getAddress
 
@@ -30,13 +33,34 @@ public class Dog {
         return this.name;
     } // end method getName
 
-    // TODO: public method to update schedule for a dog.
+    // DONE: public method to update schedule for a dog.
+    public void setSchedule() throws IOException {
+        // lets user update a dog's weekly schedule
+        Scanner s = new Scanner(System.in);
+        for (int i = 0; i < 7; i++) {
+            while (true) {
+                try {
+                    System.out.println("How may walks does " + this.getName() + " get on " + DogManager.getDayName(i) + "?");
+                    this.schedule[i] = s.nextInt();
+                    break;
+                } catch (Exception e) {
+                    System.out.println("I don't understand your input.  Please enter a whole number.");
+                    s = new Scanner(System.in);
+                }  // end try-catch
+            } // end while
+        } // end for
+        System.out.println(this.getName() + "'s schedule is now:");
+        this.writeDog();
+    } // end method setSchedule
 
     private String getSchedule() {
         // returns a dog's weekly schedule, private because it's only used by module writeDog.
         String sched = "";
-        for (int j = 0; j<7; j++) {
-           sched += ("\t" + DogManager.getDayName(j) + ": " + this.getWalks(j) + " walks.\n");
+        String sing_or_pl;
+        for (int j = 0; j < 7; j++) {
+            if (this.getWalks(j) == 1) sing_or_pl = " walk";
+            else sing_or_pl = " walks";
+            sched += ("\t" + DogManager.getDayName(j) + ": " + this.getWalks(j) + sing_or_pl + ".\n");
         } // end for
         return sched;
     } // end method getSchedule
