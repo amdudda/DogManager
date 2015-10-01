@@ -8,6 +8,7 @@ public class DogManager {
 	// Lab 6, Adv Prob 1
         // set up an arraylist to store our dogs
         ArrayList<Dog> dogList = new ArrayList<Dog>();
+
         // generate our data
         makeDogs(dogList);
 
@@ -37,10 +38,13 @@ public class DogManager {
 
     public static void writeWeeklyReport(ArrayList<Dog> dL) {
         for (int i = 0; i<7; i++) {
+            // calculate total number of walks today
             int walks_today = totalDaysWalks(dL,i);
+            // print out the day name, plus a warning if the number of walks is more than six.
             System.out.print(getDayName(i) + ":");
             if (walks_today > 6 ) System.out.println("    **WARNING: MORE THAN 6 WALKS SCHEDULED TODAY!**");
             else System.out.println("");
+            // write out each dog's walk info for that day
             for (Dog j : dL) {
                 j.writeWalkInfo(i);
             } // end run through dogList
