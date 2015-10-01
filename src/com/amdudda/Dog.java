@@ -40,7 +40,7 @@ public class Dog {
         // returns a dog's weekly schedule
         String sched = "";
         for (int j = 0; j<7; j++) {
-           sched += ("\t" + getDayName(j) + ": " + this.getWalks(j) + " walks.\n");
+           sched += ("\t" + DogManager.getDayName(j) + ": " + this.getWalks(j) + " walks.\n");
         } // end for
         return sched;
     } // end method getSchedule
@@ -53,19 +53,5 @@ public class Dog {
         System.out.println("\tWalk " + this.name + " " + this.getWalks(day) + sing_or_pl +
                 ". Address: " + this.address);
     } // end method getWalkInfo
-
-    private String getDayName(int index) {
-        // retrieves a day name based on a number
-        switch (index) {
-            case 0: return "Sunday";
-            case 1: return "Monday";
-            case 2: return "Tuesday";
-            case 3: return "Wednesday";
-            case 4: return "Thursday";
-            case 5: return "Friday";
-            case 6: return "Saturday";
-            default: return "Day unknown";
-        } // end switch
-    } // end method getDayName
 
 } // end class Dog
