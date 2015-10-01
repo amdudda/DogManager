@@ -20,14 +20,30 @@ public class Dog {
         // writes the dog's info and schedule
         System.out.println(this.name + ", " + this.address + ":");
         // write the dog's schedule
-        for (int j = 0; j<7; j++) {
-            System.out.println("\t" + getDayName(j) + ": " +
-             this.schedule[j] + " walks.");
-        } // end for
+        System.out.println(this.getSchedule());
     } // end method writeDog
 
-    public void writeDogDay() {
-        // TODO implement code to write a day's walk for the dog.
+    public int getWalks (int day) {
+        // returns number of walks for a particular weekday.
+        return this.schedule[day];
+    }
+
+    public String getAddress(){
+        return this.address;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSchedule(){
+        // returns a dog's weekly schedule
+        String sched = "";
+        for (int j = 0; j<7; j++) {
+           sched += ("\t" + getDayName(j) + ": " +
+                    this.getWalks(j) + " walks.\n");
+        } // end for
+        return sched;
     }
 
     private String getDayName(int index) {
