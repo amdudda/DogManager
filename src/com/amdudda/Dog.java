@@ -26,25 +26,33 @@ public class Dog {
     public int getWalks (int day) {
         // returns number of walks for a particular weekday.
         return this.schedule[day];
-    }
+    } // end method getWalks
 
     public String getAddress(){
         return this.address;
-    }
+    } // end method getAddress
 
     public String getName() {
         return this.name;
-    }
+    } // end method getName
 
     public String getSchedule(){
         // returns a dog's weekly schedule
         String sched = "";
         for (int j = 0; j<7; j++) {
-           sched += ("\t" + getDayName(j) + ": " +
-                    this.getWalks(j) + " walks.\n");
+           sched += ("\t" + getDayName(j) + ": " + this.getWalks(j) + " walks.\n");
         } // end for
         return sched;
-    }
+    } // end method getSchedule
+
+    public void writeWalkInfo(int day) {
+        // prints dog's name, number of walks, and address for a given day
+        String sing_or_pl;
+        if (this.getWalks(day) == 1) sing_or_pl = " time";
+        else sing_or_pl = " times";
+        System.out.println("\tWalk " + this.name + " " + this.getWalks(day) + sing_or_pl +
+                ". Address: " + this.address);
+    } // end method getWalkInfo
 
     private String getDayName(int index) {
         // retrieves a day name based on a number
