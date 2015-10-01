@@ -51,7 +51,7 @@ public class DogManager {
             // print total number of walks for the day
             System.out.println("\tTotal walks to give today: " + walks_today);
         } // end run through days of week
-    }
+    } // end writeWeeklyReport
 
     public static int totalDaysWalks(ArrayList<Dog> dL, int day) {
         // returns the total number of walks for a given day
@@ -60,7 +60,7 @@ public class DogManager {
             totalwalks += d.getWalks(day);
         }
         return totalwalks;
-    }
+    } // end totalDaysWalks
 
     public static String getDayName(int index) {
         // retrieves a day name based on a number
