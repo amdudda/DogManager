@@ -29,9 +29,27 @@ public class Dog {
         return this.address;
     } // end method getAddress
 
+    public void setAddress(String neue_addresse) {
+        this.address = neue_addresse;
+    } // end setter for address
+
     public String getName() {
         return this.name;
     } // end method getName
+
+    public void setName(String neuer_name) {
+        this.name = neuer_name;
+    } // end setter for name
+
+    public int[] getScheduleArray() {
+        return this.schedule;
+    } // getter for the array holding the walk schedule
+
+    public void setScheduleArray(int[] sched) {
+        for (int i =0; i<7; i++) {
+            this.schedule[i] = sched[i];
+        } // end for
+    } // setter for the array holding the walk schedule
 
     // DONE: public method to update schedule for a dog.
     public void setSchedule() throws IOException {
@@ -53,7 +71,7 @@ public class Dog {
         this.writeDog();
     } // end method setSchedule
 
-    private String getSchedule() {
+    private String fetchSchedule() {
         // returns a dog's weekly schedule, private because it's only used by module writeDog.
         String sched = "";
         String sing_or_pl;
@@ -63,13 +81,13 @@ public class Dog {
             sched += ("\t" + DogManager.getDayName(j) + ": " + this.getWalks(j) + sing_or_pl + ".\n");
         } // end for
         return sched;
-    } // end method getSchedule
+    } // end method fetchSchedule
 
     protected void writeDog() {
         // writes the dog's info and schedule, protected because it's just printing out info
         System.out.println(this.name + ", " + this.address + ":");
         // write the dog's schedule
-        System.out.println(this.getSchedule());
+        System.out.println(this.fetchSchedule());
     } // end method writeDog
 
     protected void writeWalkInfo(int day) {
