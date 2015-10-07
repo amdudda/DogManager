@@ -36,12 +36,7 @@ public class DogManager {
         dL.add(k9);
         dL.add(new Dog("Lassie","101 Flicka's Pier", new int[] {1,1,1,1,1,1,1}));
 
-        /* debugging: proof Dog works
-        rover.writeDog();
-        boz.writeDog();
-        rk9.writeDog();
-        */
-    }
+    }  // end makeDogs
 
     private static void writeWeeklyReport(ArrayList<Dog> dL) {
         for (int i = 0; i<7; i++) {
