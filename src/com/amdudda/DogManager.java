@@ -16,12 +16,13 @@ public class DogManager {
         // write out weekly report of dog walks
         writeWeeklyReport(dogList);
 
+        /* some extra features not requested in the assignment
         // write out weekly schedule for dog zero (Rover)
         dogList.get(0).writeDog();
 
         // update Rover's schedule
         dogList.get(0).setSchedule();
-
+        */
     } // end main
 
     private static void makeDogs(ArrayList<Dog> dL) {
