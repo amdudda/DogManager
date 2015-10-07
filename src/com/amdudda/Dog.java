@@ -19,6 +19,7 @@ public class Dog {
         this.schedule = walkSchedule;
     } // end constructor for Dog
 
+    // bunch of getters and setters, including a custom one to extract a single day's data.
     public int getWalks(int day) {
         // returns number of walks for a particular weekday.
         // public because there might be situations where you want to access the number of walks a dog has on a given day.
@@ -51,9 +52,12 @@ public class Dog {
         } // end for
     } // setter for the array holding the walk schedule
 
+    // miscellaneous custom methods
     // DONE: public method to update schedule for a dog.
     public void setSchedule() throws IOException {
         // lets user update a dog's weekly schedule
+        // I discovered that "DogManager.getDayName" method works - saves me the effort of having
+        // to retype the exact same code again in a new method for this object.
         Scanner s = new Scanner(System.in);
         for (int i = 0; i < 7; i++) {
             while (true) {
